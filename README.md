@@ -1,27 +1,27 @@
-# Terraform Module Template
-GitHub template to quick start creating terraform templates
-
-## To Use Template
-1. Click the "Use this template" button 
-2. Name your terraform module repo as `terraform-aws-<module_name>` (if creating non-AWS module change `aws` to the cloud provider)
-3. Rename this README's title to the title you named your repo in #2 
-4. Update this README to match the module's title (in the usage section)
-4. Remove this section from the README
-
+# Terraform AWS ECR
+Terraform module to create an ECR repository with lifecycle and repository policies
  
 ## Usage
 ```hcl
-module "" {
-  source = "git@github.com:byu-oit/terraform-aws-<module_name>?ref=v1.0.0"
+module "ecr" {
+  source = "git@github.com:byu-oit/terraform-aws-ecr?ref=v1.0.0"
+  name = "example-app"
 }
 ```
 
 ## Inputs
 | Name | Description | Default |
 | --- | --- | --- |
-| | |
+| name | Repository name | |
+| image_tag_mutability | The tag mutability setting for the repository. Must be one of: MUTABLE or IMMUTABLE | MUTABLE |
+| scan_image_on_push | Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false) | true |
+| lifecycle_policy | ECR Lifecycle Policy (json string) to manage the image lifecycles in the ECR repository | JSON policy that expires untagged images after 30 days |
+| repository_policy | ECR Repository Policy (json string) to manage access to the ECR repository | JSON policy that allows CodeBuild service to pull any image from this ECR repo |
+| tags | A map of AWS Tags to attach to each resource created | {} |
 
 ## Outputs
 | Name | Description |
 | --- | --- |
-| | |
+| repository | ECR repository [object](https://www.terraform.io/docs/providers/aws/r/ecr_repository.html#attributes-reference) |
+| lifecycle_policy | The repository's lifecycle policy [object](https://www.terraform.io/docs/providers/aws/r/ecr_lifecycle_policy.html#attributes-reference) |
+| repository_policy | The repository's repository policy [object](https://www.terraform.io/docs/providers/aws/r/ecr_repository_policy.html#attributes-reference) |
