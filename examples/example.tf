@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "ecr" {
-  source = "git@github.com:byu-oit/terraform-aws-ecr?ref=v1.0.0"
+  source = "github.com/byu-oit/terraform-aws-ecr?ref=v1.0.1"
 //  source = "../"
   name = "example-repo"
   image_tag_mutability = "IMMUTABLE"
