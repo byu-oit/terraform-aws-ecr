@@ -6,7 +6,7 @@ Terraform module to create an ECR repository with lifecycle and repository polic
 ## Usage
 ```hcl
 module "ecr" {
-  source = "github.com/byu-oit/terraform-aws-ecr?ref=v1.1.0"
+  source = "github.com/byu-oit/terraform-aws-ecr?ref=v1.1.1"
   name   = "example-app"
 }
 ```
@@ -20,7 +20,7 @@ module "ecr" {
 | name | string | Repository name | |
 | image_tag_mutability | string | The tag mutability setting for the repository. Must be one of: MUTABLE or IMMUTABLE | IMMUTABLE |
 | scan_image_on_push | boolean | Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false) | true |
-| lifecycle_policy | string | ECR Lifecycle Policy (json string) to manage the image lifecycles in the ECR repository | JSON policy that only keeps latest 10 images |
+| lifecycle_policy | string | ECR Lifecycle Policy (json string) to manage the image lifecycles in the ECR repository | JSON policy that only keeps latest 100 images |
 | repository_policy | string | ECR Repository Policy (json string) to manage access to the ECR repository | JSON policy that allows CodeBuild service to pull any image from this ECR repo |
 | tags | map(string) | A map of AWS Tags to attach to each resource created | {} |
 

@@ -15,7 +15,7 @@ variable "scan_image_on_push" {
 }
 variable "lifecycle_policy" {
   type        = string
-  description = "ECR Lifecycle Policy (json string) to manage the image lifecycles in the ECR repository. Defaults to keep only the last 10 images."
+  description = "ECR Lifecycle Policy (json string) to manage the image lifecycles in the ECR repository. Defaults to keep only the last 100 images."
   default     = <<L_POLICY
 {
   "rules": [
@@ -25,10 +25,10 @@ variable "lifecycle_policy" {
       },
       "selection": {
         "countType": "imageCountMoreThan",
-        "countNumber": 10,
+        "countNumber": 100,
         "tagStatus": "any"
       },
-      "description": "Only keep 10 images",
+      "description": "Only keep 100 images",
       "rulePriority": 10
     }
   ]
