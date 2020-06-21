@@ -9,7 +9,7 @@ provider "aws" {
 
 module "ecr" {
   source = "../"
-  name = "example-repo"
+  name   = "example-repo"
 }
 
 output "repository" {
