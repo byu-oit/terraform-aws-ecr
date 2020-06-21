@@ -8,7 +8,7 @@ provider "aws" {
 }
 
 module "ecr" {
-  source = "../"
+  source = "../../"
   name   = "example-repo"
 }
 
