@@ -3,8 +3,8 @@ provider "aws" {
 }
 
 module "ecr" {
-  source = "github.com/byu-oit/terraform-aws-ecr?ref=v1.1.1"
-  //  source = "../"
+  source = "github.com/byu-oit/terraform-aws-ecr?ref=v1.2.0"
+  //  source = "../../"
   name = "example-repo"
 }
 

@@ -6,7 +6,7 @@ Terraform module to create an ECR repository with lifecycle and repository polic
 ## Usage
 ```hcl
 module "ecr" {
-  source = "github.com/byu-oit/terraform-aws-ecr?ref=v1.1.1"
+  source = "github.com/byu-oit/terraform-aws-ecr?ref=v1.2.0"
   name   = "example-app"
 }
 ```
