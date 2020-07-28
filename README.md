@@ -6,7 +6,7 @@ Terraform module to create an ECR repository with lifecycle and repository polic
 ## Usage
 ```hcl
 module "ecr" {
-  source = "github.com/byu-oit/terraform-aws-ecr?ref=v1.2.0"
+  source = "github.com/byu-oit/terraform-aws-ecr?ref=v1.3.0"
   name   = "example-app"
 }
 ```
@@ -30,3 +30,9 @@ module "ecr" {
 | repository | [object](https://www.terraform.io/docs/providers/aws/r/ecr_repository.html#attributes-reference) | ECR repository object |
 | lifecycle_policy | [object](https://www.terraform.io/docs/providers/aws/r/ecr_lifecycle_policy.html#attributes-reference) | The repository's lifecycle policy object |
 | repository_policy | [object](https://www.terraform.io/docs/providers/aws/r/ecr_repository_policy.html#attributes-reference) | The repository's repository policy object | 
+
+## Developing
+
+### Release new version
+
+To release a new version, update the examples in the `examples` folder, the example in this README, and the number in the version file. Pushing to `master` will automatically create a new release and tag in GitHub.
